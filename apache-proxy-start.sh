@@ -1,6 +1,9 @@
 #!/bin/bash
 
 #Copy virtualhost on apache directory
+if [ -d /opt/proxy-conf ] && [ $(ls /opt/proxy-conf) ]; then
+  rm -rf /etc/apache2/sites-available/*
+fi
 cp /opt/proxy-conf/*.conf /etc/apache2/sites-available/
 
 #List site and enable
